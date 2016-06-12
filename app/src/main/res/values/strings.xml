@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">CSE S5</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_settings">Settings</string>
+    <string name="powered_by_kiran_anto">Powered By Kiran Anto</string>
+    <string name="rajagiri">Rajagiri School of Engineering and Technology</string>
+    <string name="notif_news">Notifications and News</string>
+    <string name="notif_link">https://raw.githubusercontent.com/kirananto/cseBeta/master/JsonFiles/Notification.json</string>
+    <string name="sub_link">https://raw.githubusercontent.com/kirananto/cseBeta/master/JsonFiles/download.json</string>
+    <string name="subjects">Subjects</string>
+    <string name="loading">Loading..!!</string>
+    <string name="maths">Engineering Maths</string>
+    <string name="banner_ad_unit_id">ca-app-pub-5605337449605410/6194382628</string>
+    <string name="parse_app_id">K96pNpoYAZYZyNa3y30f1KEkomuRJrIv2lQf9ehV</string>
+    <string name="parse_client_key">60FK9foilbdWnqJPwRMTHz3F4yCNIxRbx4loWJxi</string>
+    <string name="pom">Principles of Management</string>
+    <string name="dms">Database Management Systems</string>
+    <string name="dsp">Digital Signal Processing</string>
+    <string name="os">Operating Systems</string>
+    <string name="amp">Advanced Microprocessor and Peripherals</string>
+    <string name="communicate">Communicate</string>
+    <string name="share">Share</string>
+    <string name="send">Send</string>
+    <string name="question_papers">Question Papers</string>
+    <string name="misc_notes">Miscellaneous</string>
+    <string name="mainlogo">mainLogo</string>
+    <string name="title">TITLE</string>
+    <string name="name">NAME</string>
+    <string name="AppShare">CSE S5 APP \n
+        An App for downloading Notes and viewing latest Notifications of Cse Beta Class s5
+        You Can Download This App From ..\n
+        Here  : - https://play.google.com/store/apps/details?id=com.razorreborn.cses5 </string>
+    <string name="typr">Type :</string>
+    <string name="download">Download</string>
+    <string name="databaselab">Database lab</string>
+    <string name="mplab">Hardware and Microprocessors LAB</string>
+    <string name="Notifications">" Notifications"</string>
+    <string name="description">Description</string>
+    <string name="date">Date :</string>
+    <string name="sent_by">Sent By :</string>
+    <string name="content_description">Content or Description will be Here</string>
+</resources>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_notif"
+        android:icon="@drawable/ic_notifications_black_48dp"
+        android:title="@string/notif_news" />
+
+    <item
+        android:id="@+id/nav_mail"
+        android:icon="@drawable/ic_mail_black_48dp"
+        android:title=" Send Mail"/>
+    <item
+    android:id="@+id/nav_parents"
+    android:icon="@drawable/ic_account_circle_black_48dp"
+    android:title=" Parents Corner "/>
+
+    <item android:title="@string/subjects"
+        android:icon="@drawable/ic_book_black_48dp">
+        <menu>
+            <item
+                android:id="@+id/nav_maths"
+                android:title="@string/maths" />
+            <item
+                android:id="@+id/nav_pom"
+                android:title="@string/pom" />
+            <item
+                android:id="@+id/nav_dms"
+                android:title="@string/dms" />
+            <item
+                android:id="@+id/nav_dsp"
+                android:title="@string/dsp" />
+            <item
+                android:id="@+id/nav_os"
+                android:title="@string/os" />
+            <item
+                android:id="@+id/nav_amp"
+                android:title="@string/amp" />
+            <item
+                android:id="@+id/nav_databaselab"
+                android:title="@string/databaselab" />
+            <item
+                android:id="@+id/nav_mplab"
+                android:title="@string/mplab" />
+            <item
+            android:id="@+id/nav_exam"
+            android:title="@string/question_papers" />
+            <item
+                android:id="@+id/nav_misc"
+                android:title="@string/misc_notes" />
+        </menu>
+    </item>
+
+    <item android:title="@string/communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@drawable/ic_menu_share"
+                android:title="@string/share" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_menu_send"
+                android:title="@string/send" />
+            <item android:id="@+id/nav_setting"
+                android:icon="@drawable/ic_settings_black_48dp"
+                android:title=" Settings "/>
+        </menu>
+    </item>
+
+</menu>
