@@ -24,7 +24,6 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
@@ -123,7 +122,7 @@ public class MainActivity extends AppCompatActivity
         swiperefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-               jsonFetch();
+                jsonFetch();
             }
         });
         swiperefresh.setColorSchemeResources(R.color.colorAccent,R.color.colorPrimary,R.color.cardview_dark_background);
@@ -143,64 +142,63 @@ public class MainActivity extends AppCompatActivity
     }
 
     private void jsonFetch() {
-            pDialog = new ProgressDialog(MainActivity.this);
-            pDialog.setTitle(getString(R.string.loading));
-            pDialog.setMessage(getString(R.string.loading));
-            pDialog.setCancelable(false);
-            pDialog.show();
-            String NOTIF = getString(R.string.notif_link);
-            RequestQueue queue = Volley.newRequestQueue(this);
-            queue.add(new CustomJsonRequestMain(NOTIF, null,
-                                new Response.Listener<JSONArray>() {
-                                    @Override
-                                    public void onResponse(JSONArray response) {
-                                        hidePDialog();
-                                        // fetching json to shared preferences;
-                                        SharedPreferences sharedPreferences= context.getSharedPreferences("Prefs", Context.MODE_PRIVATE);
-                                        SharedPreferences.Editor editor= sharedPreferences.edit();
-                                        editor.putString("Notifications",response.toString());
-                                        editor.apply();
-                                        jsonparse();
+        pDialog = new ProgressDialog(MainActivity.this);
+        pDialog.setTitle(getString(R.string.loading));
+        pDialog.setMessage(getString(R.string.loading));
+        pDialog.setCancelable(false);
+        pDialog.show();
+        String NOTIF = getString(R.string.notif_link);
+        RequestQueue queue = Volley.newRequestQueue(this);
+        queue.add(new CustomJsonRequestMain(NOTIF, null,
+                          new Response.Listener<JSONArray>() {
+                              @Override
+                              public void onResponse(JSONArray response) {
+                                  hidePDialog();
+                                  // fetching json to shared preferences;
+                                  SharedPreferences sharedPreferences= context.getSharedPreferences("Prefs", Context.MODE_PRIVATE);
+                                  SharedPreferences.Editor editor= sharedPreferences.edit();
+                                  editor.putString("Notifications",response.toString());
+                                  editor.apply();
+                                  jsonparse();
 
-                                    }
-                                }
+                              }
+                          }
 
-                                , new Response.ErrorListener()
+                          , new Response.ErrorListener()
 
-                        {
-                            @Override
-                            public void onErrorResponse(VolleyError error) {
-                                VolleyLog.d("Error: " + error.getMessage());
-                                hidePDialog();
-                                jsonparse();
-                            }
-                        }
+                  {
+                      @Override
+                      public void onErrorResponse(VolleyError error) {
+                          VolleyLog.e("Error: " + error.getMessage()); hidePDialog();
+                          jsonparse();
+                      }
+                  }
 
-                        )
+                  )
 
-                        {
+                  {
 
 
-                            @Override
-                            protected Response<JSONArray> parseNetworkResponse(
-                                    NetworkResponse response) {
-                                try {
-                                    String jsonString = new String(response.data,
-                                            HttpHeaderParser
-                                                    .parseCharset(response.headers));
-                                    return Response.success(new JSONArray(jsonString),
-                                            HttpHeaderParser
-                                                    .parseCacheHeaders(response));
-                                } catch (UnsupportedEncodingException e) {
-                                    return Response.error(new ParseError(e));
-                                } catch (JSONException je) {
-                                    return Response.error(new ParseError(je));
-                                }
-                            }
-                        }
+                      @Override
+                      protected Response<JSONArray> parseNetworkResponse(
+                              NetworkResponse response) {
+                          try {
+                              String jsonString = new String(response.data,
+                                      HttpHeaderParser
+                                              .parseCharset(response.headers));
+                              return Response.success(new JSONArray(jsonString),
+                                      HttpHeaderParser
+                                              .parseCacheHeaders(response));
+                          } catch (UnsupportedEncodingException e) {
+                              return Response.error(new ParseError(e));
+                          } catch (JSONException je) {
+                              return Response.error(new ParseError(je));
+                          }
+                      }
+                  }
 
-                    ).getCacheEntry();
-        }
+        ).getCacheEntry();
+    }
     private void jsonparse()
     {
         JSONArray notifications=new JSONArray();
@@ -211,7 +209,7 @@ public class MainActivity extends AppCompatActivity
         }catch(JSONException e)
         {
             Toast.makeText(context,"Please Connect to Internet and Try again..!!",Toast.LENGTH_LONG).show();
-        e.printStackTrace();}
+            e.printStackTrace();}
         try{
 
             for (int i=0;i<notifications.length();i++)
@@ -261,29 +259,6 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            Intent subject = new Intent(getApplicationContext(), SettingsActivity.class);
-            startActivity(subject);
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -315,14 +290,14 @@ public class MainActivity extends AppCompatActivity
             startActivity(subject);
             finish();
         } else if (id == R.id.nav_dsp) {
-            Global.subject = "MicroProcessor";
-            Global.subjectCode = "mps";
+            Global.subject = "Digital Signal Processing";
+            Global.subjectCode = "dsp";
             Intent subject = new Intent(getApplicationContext(), OopActivity.class);
             startActivity(subject);
             finish();
         } else if (id == R.id.nav_os) {
-            Global.subject = "Signals and Communication";
-            Global.subjectCode = "scs";
+            Global.subject = "Operating Systems";
+            Global.subjectCode = "os";
             Intent subject = new Intent(getApplicationContext(), OopActivity.class);
             startActivity(subject);
             finish();
@@ -331,14 +306,14 @@ public class MainActivity extends AppCompatActivity
             startActivity(notif);
             finish();
         } else if (id == R.id.nav_databaselab) {
-            Global.subject = "DSA LAb";
-            Global.subjectCode = "dsalab";
+            Global.subject = "Database Lab";
+            Global.subjectCode = "databaselab";
             Intent subject = new Intent(getApplicationContext(), OopActivity.class);
             startActivity(subject);
             finish();
         } else if (id == R.id.nav_mplab) {
-            Global.subject = "SCS LAB";
-            Global.subjectCode = "scslab";
+            Global.subject = "Hardware and Microprocessors LAB";
+            Global.subjectCode = "mplab";
             Intent subject = new Intent(getApplicationContext(), OopActivity.class);
             startActivity(subject);
             finish();
@@ -354,28 +329,25 @@ public class MainActivity extends AppCompatActivity
             Intent subject = new Intent(getApplicationContext(), OopActivity.class);
             startActivity(subject);
             finish();
-        }else if (id == R.id.nav_share) {
-            Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+        }else if (id == R.id.nav_parent) {
+            Intent parent = new Intent(getApplicationContext(), ParentsActivity.class);
+            startActivity(parent);
+            finish();
+        } else if (id == R.id.nav_share) {
+            Intent sharingIntent = new Intent(Intent.ACTION_SEND);
             sharingIntent.setType("text/plain");
-            sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, getString(R.string.AppShare));
+            sharingIntent.putExtra(Intent.EXTRA_TEXT, getString(R.string.AppShare));
             startActivity(Intent.createChooser(sharingIntent, "Share via"));
         } else if (id == R.id.nav_send) {
-            Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+            Intent sharingIntent = new Intent(Intent.ACTION_SEND);
             sharingIntent.setType("text/plain");
-            sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, Global.AppShare);
+            sharingIntent.putExtra(Intent.EXTRA_TEXT, Global.AppShare);
             startActivity(Intent.createChooser(sharingIntent, "Share via"));
         } else if (id == R.id.nav_mail) {
             Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
                     "mailto","KIRAN ANTO", null));
             emailIntent.putExtra(Intent.EXTRA_SUBJECT, "REGARDING CONTENT OF CSE BETA App");
             startActivity(Intent.createChooser(emailIntent, "Send email..."));
-        } else if (id == R.id.nav_parents){
-            Intent parents = new Intent(getApplicationContext(), ParentsActivity.class);
-            startActivity(parents);
-        } else if (id == R.id.nav_setting){
-
-            Intent subject = new Intent(getApplicationContext(), SettingsActivity.class);
-            startActivity(subject);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

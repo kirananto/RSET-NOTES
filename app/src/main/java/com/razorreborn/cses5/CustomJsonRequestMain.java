@@ -33,15 +33,12 @@ class CustomJsonRequestMain extends Request {
     public CustomJsonRequestMain(String url, Map<String, String> params,
                                  Response.Listener responseListener, Response.ErrorListener errorListener) {
 
-        super(Method.POST, url, errorListener);
+        super(Method.GET, url, errorListener);
 
 
         params = new HashMap<>();
-        params.put("Content-Type", "application/json; charset=utf-8");
-        params.put("User-agent", "My useragent");
         this.params = params;
         this.listener = responseListener;
-
         this.setShouldCache(Boolean.TRUE);
     }
 
@@ -54,7 +51,15 @@ class CustomJsonRequestMain extends Request {
     @Override
     public Map<String, String> getParams() throws AuthFailureError {
 
+        params.put("User-agent", "My useragent");
         return params;
+    }
+
+    @Override
+    public Map<String, String> getHeaders() throws AuthFailureError {
+        HashMap<String, String> headers = new HashMap<String, String>();
+        headers.put("Content-Type", "application/json; charset=utf-8");
+        return headers;
     }
 
     @Override

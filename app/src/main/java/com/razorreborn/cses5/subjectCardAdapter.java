@@ -74,7 +74,6 @@ public class subjectCardAdapter extends RecyclerView.Adapter<subjectCardAdapter.
         if(applicationFile.exists()) {
             holder.download.setText(" Open ");
         }
-
         holder.download.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

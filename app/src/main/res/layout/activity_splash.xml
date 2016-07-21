@@ -27,8 +27,7 @@
         android:layout_alignStart="@+id/imgLogo"
         android:layout_marginBottom="40dp"
         android:layout_alignRight="@+id/imgLogo"
-        android:layout_alignEnd="@+id/imgLogo"
-        android:id="@+id/textView" />
+        android:layout_alignEnd="@+id/imgLogo" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -41,6 +40,17 @@
         android:textSize="25sp"
         android:layout_marginTop="33dp"
         android:layout_below="@+id/imgLogo"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:id="@+id/textView" />
+
+    <TextView
+        android:text="@string/ps"
+        android:textSize="7dp"
+        android:textColor="#616161"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/textView4" />
 
 </RelativeLayout>

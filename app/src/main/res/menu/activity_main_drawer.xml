@@ -11,8 +11,8 @@
         android:icon="@drawable/ic_mail_black_48dp"
         android:title=" Send Mail"/>
     <item
-    android:id="@+id/nav_parents"
-    android:icon="@drawable/ic_account_circle_black_48dp"
+        android:id="@+id/nav_parent"
+        android:icon="@drawable/ic_account_circle_black_48dp"
     android:title=" Parents Corner "/>
 
     <item android:title="@string/subjects"
@@ -61,9 +61,6 @@
                 android:id="@+id/nav_send"
                 android:icon="@drawable/ic_menu_send"
                 android:title="@string/send" />
-            <item android:id="@+id/nav_setting"
-                android:icon="@drawable/ic_settings_black_48dp"
-                android:title=" Settings "/>
         </menu>
     </item>
 

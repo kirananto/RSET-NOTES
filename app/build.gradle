@@ -7,9 +7,9 @@ android {
     defaultConfig {
         applicationId "com.razorreborn.cses5"
         minSdkVersion 16
-        targetSdkVersion 23
-        versionCode 7
-        versionName "1.0.6"
+        targetSdkVersion 24
+        versionCode 1
+        versionName "1.0.0"
     }
     buildTypes {
         release {
@@ -35,6 +35,5 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:23.2.1'
     compile 'com.google.android.gms:play-services-appindexing:8.4.0'
     compile 'com.google.android.gms:play-services-ads:8.4.0'
-    compile 'com.parse:parse-android:1.13.0'
 
 }

@@ -11,7 +11,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebSettings;
@@ -83,29 +82,6 @@ public class ParentsActivity extends AppCompatActivity
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            Intent subject = new Intent(getApplicationContext(), SettingsActivity.class);
-            startActivity(subject);
-            finish();
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -138,14 +114,14 @@ public class ParentsActivity extends AppCompatActivity
             startActivity(subject);
             finish();
         } else if (id == R.id.nav_dsp) {
-            Global.subject = "MicroProcessor";
-            Global.subjectCode = "mps";
+            Global.subject = "Digital Signal Processing";
+            Global.subjectCode = "dsp";
             Intent subject = new Intent(getApplicationContext(), OopActivity.class);
             startActivity(subject);
             finish();
         } else if (id == R.id.nav_os) {
-            Global.subject = "Signals and Communication";
-            Global.subjectCode = "scs";
+            Global.subject = "Operating Systems";
+            Global.subjectCode = "os";
             Intent subject = new Intent(getApplicationContext(), OopActivity.class);
             startActivity(subject);
             finish();
@@ -154,14 +130,18 @@ public class ParentsActivity extends AppCompatActivity
             startActivity(notif);
             finish();
         } else if (id == R.id.nav_databaselab) {
-            Global.subject = "DSA LAb";
-            Global.subjectCode = "dsalab";
+            Global.subject = "Database Lab";
+            Global.subjectCode = "databaselab";
             Intent subject = new Intent(getApplicationContext(), OopActivity.class);
             startActivity(subject);
             finish();
+        }else if (id == R.id.nav_parent) {
+            Intent parent = new Intent(getApplicationContext(), ParentsActivity.class);
+            startActivity(parent);
+            finish();
         } else if (id == R.id.nav_mplab) {
-            Global.subject = "SCS LAB";
-            Global.subjectCode = "scslab";
+            Global.subject = "Hardware and Microprocessors LAB";
+            Global.subjectCode = "mplab";
             Intent subject = new Intent(getApplicationContext(), OopActivity.class);
             startActivity(subject);
             finish();
@@ -192,11 +172,6 @@ public class ParentsActivity extends AppCompatActivity
                     "mailto","KIRAN ANTO", null));
             emailIntent.putExtra(Intent.EXTRA_SUBJECT, "REGARDING CONTENT OF CSE BETA App");
             startActivity(Intent.createChooser(emailIntent, "Send email..."));
-        } else if (id == R.id.nav_setting){
-
-            Intent subject = new Intent(getApplicationContext(), SettingsActivity.class);
-            startActivity(subject);
-            finish();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
